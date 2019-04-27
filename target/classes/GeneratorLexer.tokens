@@ -1,0 +1,16 @@
+T__0=1
+T__1=2
+T__2=3
+T__3=4
+T__4=5
+OFTYPE=6
+NAME=7
+TYPENAME=8
+WHITESPACE=9
+NEWLINE=10
+'['=1
+']'=2
+';'=3
+'get'=4
+'set'=5
+'oftype'=6

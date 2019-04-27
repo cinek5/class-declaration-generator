@@ -1,0 +1,12 @@
+GeneratorListener.class
+GeneratorParser$AttrnameContext.class
+GeneratorVisitor.class
+GeneratorLexer.class
+GeneratorParser$AttrdefContext.class
+GeneratorParser$SetterContext.class
+GeneratorBaseVisitor.class
+GeneratorParser$GetterContext.class
+GeneratorParser$RootContext.class
+GeneratorBaseListener.class
+GeneratorParser$TypenameContext.class
+GeneratorParser.class
