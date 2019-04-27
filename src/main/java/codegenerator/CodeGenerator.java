@@ -67,7 +67,9 @@ public class CodeGenerator {
         StringBuilder getters = new StringBuilder();
         for (Attrdef attrdef: root.getAttrdefs())
         {
-            getters.append(generateGetter(attrdef));
+            if (attrdef.isHasGetter()) {
+                getters.append(generateGetter(attrdef));
+            }
         }
 
         return getters;
@@ -87,7 +89,9 @@ public class CodeGenerator {
         StringBuilder setters = new StringBuilder();
         for (Attrdef attrdef: root.getAttrdefs())
         {
-            setters.append(generateSetter(attrdef));
+            if (attrdef.isHasSetter()) {
+                setters.append(generateSetter(attrdef));
+            }
         }
 
         return setters;
