@@ -83,7 +83,7 @@ public class GeneratorParser extends Parser {
 	}
 	public static class RootContext extends ParserRuleContext {
 		public TerminalNode TYPENAME() { return getToken(GeneratorParser.TYPENAME, 0); }
-		public TerminalNode NEWLINE() { return getToken(GeneratorParser.NEWLINE, 0); }
+		public TerminalNode EOF() { return getToken(GeneratorParser.EOF, 0); }
 		public List<AttrdefContext> attrdef() {
 			return getRuleContexts(AttrdefContext.class);
 		}
@@ -137,7 +137,7 @@ public class GeneratorParser extends Parser {
 			setState(19);
 			match(T__1);
 			setState(20);
-			match(NEWLINE);
+			match(EOF);
 			}
 		}
 		catch (RecognitionException re) {
@@ -415,7 +415,7 @@ public class GeneratorParser extends Parser {
 		"\5\3\5\3\6\3\6\3\7\3\7\3\7\2\2\b\2\4\6\b\n\f\2\3\3\2\t\n\2(\2\16\3\2\2"+
 		"\2\4\30\3\2\2\2\6#\3\2\2\2\b%\3\2\2\2\n\'\3\2\2\2\f)\3\2\2\2\16\17\7\n"+
 		"\2\2\17\21\7\3\2\2\20\22\5\4\3\2\21\20\3\2\2\2\22\23\3\2\2\2\23\21\3\2"+
-		"\2\2\23\24\3\2\2\2\24\25\3\2\2\2\25\26\7\4\2\2\26\27\7\f\2\2\27\3\3\2"+
+		"\2\2\23\24\3\2\2\2\24\25\3\2\2\2\25\26\7\4\2\2\26\27\7\2\2\3\27\3\3\2"+
 		"\2\2\30\31\5\6\4\2\31\32\7\b\2\2\32\34\5\b\5\2\33\35\5\n\6\2\34\33\3\2"+
 		"\2\2\34\35\3\2\2\2\35\37\3\2\2\2\36 \5\f\7\2\37\36\3\2\2\2\37 \3\2\2\2"+
 		" !\3\2\2\2!\"\7\5\2\2\"\5\3\2\2\2#$\7\t\2\2$\7\3\2\2\2%&\t\2\2\2&\t\3"+

@@ -5,7 +5,7 @@ grammar Generator;
  * Compiler Rules
  */
 
-root: TYPENAME '[' attrdef+ ']' NEWLINE ;
+root: TYPENAME '[' attrdef+ ']' EOF  ;
 attrdef: attrname OFTYPE typename getter? setter? ';' ;
 attrname: NAME ;
 typename: NAME | TYPENAME ;
