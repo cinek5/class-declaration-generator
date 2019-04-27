@@ -15,8 +15,13 @@ public class CodeGenerator {
         this.root = root;
     }
 
+    public String getFileName()
+    {
+        return root.getTypeName()+".java";
+    }
 
-    public String generateSourceCode()
+
+    public StringBuilder generateSourceCode()
     {
         String classDeclarationBegin = "public class "+root.getTypeName() + " { ";
         StringBuilder classDeclaration = new StringBuilder(classDeclarationBegin);
@@ -34,7 +39,7 @@ public class CodeGenerator {
 
         classDeclaration.append("}");
 
-        return classDeclaration.toString();
+        return classDeclaration;
     }
 
     private String twoLineSeperators() {

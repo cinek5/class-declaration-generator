@@ -2,8 +2,11 @@
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class GeneratorParser extends Parser {
@@ -14,7 +17,7 @@ public class GeneratorParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, OFTYPE=6, NAME=7, TYPENAME=8, 
-		WHITESPACE=9, NEWLINE=10;
+		WHITESPACE=9, NEWLINE=10, UNKNOWN_CHAR=11;
 	public static final int
 		RULE_root = 0, RULE_attrdef = 1, RULE_attrname = 2, RULE_typename = 3, 
 		RULE_getter = 4, RULE_setter = 5;
@@ -27,7 +30,7 @@ public class GeneratorParser extends Parser {
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, null, null, null, null, null, "OFTYPE", "NAME", "TYPENAME", "WHITESPACE", 
-		"NEWLINE"
+		"NEWLINE", "UNKNOWN_CHAR"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -406,7 +409,7 @@ public class GeneratorParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\f,\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\r,\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2\3\2\3\2\6\2\22\n\2\r\2\16\2\23"+
 		"\3\2\3\2\3\2\3\3\3\3\3\3\3\3\5\3\35\n\3\3\3\5\3 \n\3\3\3\3\3\3\4\3\4\3"+
 		"\5\3\5\3\6\3\6\3\7\3\7\3\7\2\2\b\2\4\6\b\n\f\2\3\3\2\t\n\2(\2\16\3\2\2"+

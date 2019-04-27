@@ -31,3 +31,5 @@ TYPENAME: UPPERCASE (LOWERCASE | UPPERCASE )+ ;
 WHITESPACE          : (' ') -> skip ;
 
 NEWLINE             : ('\r'? '\n' | '\r')+ ;
+
+UNKNOWN_CHAR : . ;

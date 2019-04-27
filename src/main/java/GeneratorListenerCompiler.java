@@ -1,10 +1,11 @@
-import com.sun.istack.internal.NotNull;
+
 import model.Attrdef;
 import model.Root;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.TokenStream;
+import org.antlr.v4.runtime.misc.ParseCancellationException;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -15,12 +16,15 @@ import java.util.Collection;
 public class GeneratorListenerCompiler {
 
 
-    public Root parse(String code)
+    public Root parse(String code) throws ParseCancellationException
     {
         CharStream charStream = new ANTLRInputStream(code);
         GeneratorLexer lexer = new GeneratorLexer(charStream);
         TokenStream tokens = new CommonTokenStream(lexer);
         GeneratorParser parser = new GeneratorParser(tokens);
+
+        parser.removeErrorListeners();
+        parser.addErrorListener(ThrowingErrorListener.INSTANCE);
 
         RootListener rootListener = new RootListener();
         parser.root().enterRule(rootListener);
@@ -32,7 +36,7 @@ public class GeneratorListenerCompiler {
         private Root parsedRoot = null;
 
         @Override
-        public void enterRoot(@NotNull GeneratorParser.RootContext ctx) {
+        public void enterRoot( GeneratorParser.RootContext ctx) {
             String typeName = ctx.TYPENAME().getText();
             AttrdefListener attrdefListener = new AttrdefListener();
             ctx.attrdef().forEach(attrdef -> attrdef.enterRule(attrdefListener));
@@ -53,7 +57,7 @@ public class GeneratorListenerCompiler {
 
 
         @Override
-        public void enterAttrdef(@NotNull GeneratorParser.AttrdefContext ctx) {
+        public void enterAttrdef( GeneratorParser.AttrdefContext ctx) {
             String attrName = ctx.attrname().getText();
             String typeName = ctx.typename().getText();
             boolean hasGetter = ctx.getter()!=null;
